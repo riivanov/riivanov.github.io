@@ -1,0 +1,16 @@
+/* Add application styles & imports to this file! */
+html {
+    display: flex;
+    flex: 1 0 100%;
+
+    body {
+        display: flex;
+        flex: 1 0 100%;
+        margin: 0;
+
+        resume-container {
+            display: flex;
+            flex: 1 0 100%;
+        }
+    }
+}
