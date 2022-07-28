@@ -1,0 +1,173 @@
+{
+    "resume" : {
+        "contact" : {
+            "name" : {
+                "first" : "Radoslav",
+                "last" : "Ivanov"
+            },
+            "about": "I bring passion and focus to your company",
+            "location" : {
+                "city": "Sofia",
+                "country": "Bulgaria"
+            },
+            "email" : "riivanov63@gmail.com",
+            "linked-in" : "https://www.linkedin.com/in/radoslav-ivanov-51366b240",
+            "websites" : {
+                "leia" : "https://developer.leialoft.com",
+                "chapkinlab": "https://chapkinlab.tamu.edu/"
+            }
+        },
+        "skills" : [
+            "git",
+            "angular",
+            "typescript",
+            "postgresql",
+            "liniux",
+            "vim"
+        ],
+        "experience" : [
+            {
+                "company" : "UI Centric",
+                "position": {
+                    "title": "Javascript / Angular Developer",
+                    "duration": {
+                        "from" : "05.01.2018",
+                        "to" : "04.01.2019"
+                    },
+                    "location": {
+                        "city": "San Antonio",
+                        "state": "Texas"
+                    }
+                },
+                "contributions" : [
+                    "Worked in a 2 man team to develop the front end for: https://developer.leialoft.com, which is an app store, where developers can submit apps, which go live to the Leia phone, and can make revenue, through Stripe, from IAPs or other costs associated with the app.",
+                    "Creator of developer/admin dashboards on the site, which visualize the payments for apps that a user has submitted.",
+                    "Used https://github.com/swimlane/ngx-charts, and customized them",
+                    "Integrated with Stripe payment system to allow payouts for apps.",
+                    "Wrote custom `NG_VALUE_ACCESOR` custom input controls, to manage form state.",
+                    "Continuously adapted to changing requirements from client"
+                ]
+            },
+            {
+                "company": "MESH",
+                "position": {
+                    "title": "Javascript / Angular Developer",
+                    "duration": {
+                        "from" : "02.01.2016",
+                        "to" : "02.01.2018"
+                    },
+                    "location": {
+                        "city": "Denver",
+                        "state": "Colorado"
+                    }
+                },
+                "contributions": [
+                    "Engaged in all aspects of software development using Angular2 for an SPA and Node6 for the backend",
+                    "Wrote custom components such as a custom SVGIconCacher, markdown pipe, and infinite scroll directive",
+                    "Wrote a fully indexed search, utilizing PostreSQL lexemes, in a functional style, to dynamically make all models searchable",
+                    "Created WebRTC VOIP service using web-sockets",
+                    "Created real-time chat service using web-sockets",
+                    "Created Facebook-like friend requests",
+                    "Developed web-socketed SPA reloads so that messages and friend-requests were live"
+                ]
+            },
+            {
+                "company": "Chapkin Lab",
+                "position": {
+                    "title": "Technical Lab Assistant / Software Developer",
+                    "duration": {
+                        "from": "09.01.2012",
+                        "to": "05.01.2017"
+                    },
+                    "location": {
+                        "city": "College Station",
+                        "state": "Texas"
+                    }
+                },
+                "contributions": [
+                    "Contributed to a gene sequencing pipeline for the mapping and analysis of gene datasets against a general reference genome.",
+                    "Maintained a Nginx, UWSGI, Flask, Python, Julia, and R web applica�on, currently in private beta, which automates the analysis and mapping of gene sequencing datasets through the use of the aforementioned pipeline Classiﬁcation, Diﬀerential Expression Analysis, and CCA.",
+                    "Created a dynamic SQL generator using sqlite and .NET 4.5 to transform gene sequencing data from Microsoft Excel documents or CSV ﬁles in a user deﬁned manner.",
+                    "Worked closely with end users to ﬁnalize codebases to their speciﬁcations.",
+                    "Used dd to revive dead and otherwise unrecoverable system hard-drives, knowledge of the yum, pacman, apt-get, and emerge package managers, etc.",
+                    "Installed, administered, and maintained various distributions of Linux on many diﬀerent architectures. Speciﬁcally: Gentoo, Fedora, Ubuntu, CentOS, and Manjaro.",
+                    "Maintainer of http://chapkinlab.tamu.edu/",
+                    "Environment: vim, vundle, tmux, zsh, and copious language dependent plugins"
+                ]
+            },
+            {
+                "company": "McDonald Technologies",
+                "position": {
+                    "title": "System Programmer",
+                    "duration": {
+                        "from": "02.01.2016",
+                        "to": "02.01.2017"
+                    },
+                    "location": {
+                        "city": "San Antonio",
+                        "state": "Texas"
+                    }
+                },
+                "contributions": [
+                    "Participant in the development and responsible for the integration of an ARM Linux passive / active balancing battery management system using Linaro, C+ +11, Sqlite, and ODB. Provided a REST API for the Web GUI, using Restbed, and RestQ",
+                    "Created a cross compiled, Linux, Windows, and OsX friendly build that runs on a BeagleBone Black",
+                    "Integrated other team members' code using a Git-to-SVN bridge, allowing both VCSs to be used",
+                    "Used GOF design patterns to modularize codebase for reuse."
+                ]
+            },
+            {
+                "company": "Freenters Inc.",
+                "position": {
+                    "title": "Javascript Developer",
+                    "duration": {
+                        "from": "02.01.2015",
+                        "to": "02.01.2016"
+                    },
+                    "location": {
+                        "city": "Chicago",
+                        "state": "Illinois"
+                    }
+                },
+                "contributions": [
+                    "Responsible for the architecture and development and design of a full stack MEAN app: using a MySQL backend though Sequelizejs, running on a nodejs server, with an expressjs web host, through to the client side SPA handled by Angularjs.",
+                    "Migrated app from AngularJS to Angular2 using Typescript",
+                    "Environment: MSVS2013, VsVim, Nodejs tools, typescript v1.8."
+                ]
+            },
+            {
+                "company": "State of Indiana",
+                "position": {
+                    "title": "Software Developer",
+                    "duration": {
+                        "from": "01.01.2012",
+                        "to": "06.01.2012"
+                    },
+                    "location": {
+                        "city": "Indianapolis",
+                        "state": "Indiana"
+                    }
+                },
+                "contributions": [
+                    "Wrote the javascript frontend for the BPM migration of the COBOL Mainframe system"
+                ]
+            },
+            {
+                "company": "Capsher Technology",
+                "position": {
+                    "title": "Junior C# Developer",
+                    "duration": {
+                        "from": "09.01.2006",
+                        "to": "09.01.2007"
+                    },
+                    "location": {
+                        "city": "Bryan",
+                        "state": "Texas"
+                    }
+                },
+                "contributions": [
+                    "Coded on 10 person team developing, and maintaining a real-time oil ﬁeld asset managing application for Schlumberger Ltd. integrating: Microsoft Visual Studio 2005, .NET 2.0, 3.0, high load, server-side, web services, remoting, and extensible GUI"
+                ]
+            }
+        ]
+    }
+}
