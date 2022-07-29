@@ -1,16 +1,24 @@
-/* Add application styles & imports to this file! */
+@font-face {
+    font-family: LiberationSerif-Regular;
+    src: url(./assets/LiberationSerif-Regular.ttf); 
+}
+
 html {
     display: flex;
-    flex: 1 0 100%;
+    font-family: 'Liberation Serif Regular';
 
     body {
         display: flex;
-        flex: 1 0 100%;
+        flex: 1 auto;
+        justify-content: center;
         margin: 0;
+        background-color: #F7F7F7;
 
         resume-container {
             display: flex;
-            flex: 1 0 100%;
+            width: 70%;
+            justify-content: center;
+            background-color: #FFFFFF;
         }
     }
 }
