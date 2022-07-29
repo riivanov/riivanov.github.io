@@ -1,8 +1,15 @@
-.resume-left-pane {
+.resume-page {
     display: flex;
-    flex: 1 0 30%;
-}
-.resume-main-pane {
-    display: flex;
-    flex: 1 0 70%;
+
+    .resume-left-pane {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 30%;
+        background-color: #293E49;
+    }
+    .resume-main-pane {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 70%;
+    }
 }
