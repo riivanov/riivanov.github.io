@@ -6,20 +6,21 @@
 html {
     display: flex;
     font-family: 'Liberation Serif Regular';
+    flex-direction: column;
 
     body {
         display: flex;
+        flex-direction: column;
         flex: 1 auto;
         justify-content: center;
         margin: 0;
         background-color: #F7F7F7;
 
-        resume-container {
+        app {
             display: flex;
             flex-direction: column;
-            width: 70%;
+            align-items: center;
             justify-content: center;
-            background-color: #FFFFFF;
         }
     }
 }

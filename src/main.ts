@@ -1,7 +1,6 @@
 import './polyfills';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
 
-import { ResumeModule } from './resume/resume.module';
-
-platformBrowserDynamic().bootstrapModule(ResumeModule).then(ref => {}).catch(err => console.error(err));
+platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {}).catch(err => console.error(err));
