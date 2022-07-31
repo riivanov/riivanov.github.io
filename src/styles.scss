@@ -3,9 +3,15 @@
     src: url(./assets/LiberationSerif-Regular.ttf); 
 }
 
+// https://stackoverflow.com/questions/13430897/how-to-override-font-boosting-in-mobile-chrome
+html * {
+    max-height:1000000rem;
+}
+
 html {
     display: flex;
     font-family: 'Liberation Serif Regular';
+    // font-size: clamp(1.5rem, 5vw, 3rem);
     flex-direction: column;
 
     body {
@@ -14,10 +20,10 @@ html {
         flex: 1 auto;
         justify-content: center;
         margin: 0;
-        background-color: #F7F7F7;
 
         app {
             display: flex;
+            background-color: #F7F7F7;
             flex-direction: column;
             align-items: center;
             justify-content: center;
