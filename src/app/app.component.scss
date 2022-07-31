@@ -1,8 +1,11 @@
-resume-container {
+resume-page {
     display: flex;
-    flex-direction: column;
     width: 70%;
     min-height: 100vh;
     justify-content: center;
     background-color: #FFFFFF;
+
+    &:nth-child(1) {
+        margin: 2% 0 2% 0;
+    }
 }
