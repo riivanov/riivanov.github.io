@@ -3,17 +3,12 @@
     flex: 1 0 auto;
     box-shadow: 1rem 1rem 1rem 1rem #9D9D9D;
     margin: 0 0 2% 0;
+    width: 70%;
+    min-height: 100vh;
+    justify-content: center;
+    background-color: #FFFFFF;
 
-    .resume-left-pane {
-        display: flex;
-        flex-direction: column;
-        flex: 1 0 30%;
-        background-color: #293E49;
-        border-right: thin solid #5B6B73;
-    }
-    .resume-main-pane {
-        display: flex;
-        flex-direction: column;
-        flex: 1 0 70%;
+    &:nth-child(1) {
+        margin: 2% 0 2% 0;
     }
 }

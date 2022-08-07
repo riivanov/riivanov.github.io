@@ -1,6 +1,10 @@
 :host {
-    color: #E1E9EE;
     display: flex;
+    flex-direction: column;
+    flex: 1 0 30%;
+    color: #E1E9EE;
+    background-color: #293E49;
+    border-right: thin solid #5B6B73;
 
     .contact {
         font-size: 9.8;
