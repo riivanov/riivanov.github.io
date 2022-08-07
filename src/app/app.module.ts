@@ -2,19 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { ResumeLeftPaneComponent } from './resume/resume-left-pane/resume-left-pane.component';
-import { ResumeMainPaneComponent } from './resume/resume-main-pane/resume-main-pane.component';
 import { AppComponent } from './app.component';
-import { ResumePageComponent } from './resume/resume-page/resume-page.component';
+import { ResumeModule } from './resume/resume.module';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ 
-    ResumeLeftPaneComponent, 
-    ResumeMainPaneComponent, 
-    ResumePageComponent, 
-    AppComponent
-  ],
+  imports:      [ BrowserModule, FormsModule, ResumeModule ],
+  declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

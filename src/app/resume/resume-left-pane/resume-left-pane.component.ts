@@ -1,6 +1,6 @@
-import * as resume from '../resume.json';
 import { Component, OnInit } from '@angular/core';
 import { Resume } from '../resume.interface';
+import { ResumeService } from '../resume.service';
 
 @Component({
   selector: 'resume-left-pane',
@@ -10,10 +10,10 @@ import { Resume } from '../resume.interface';
 export class ResumeLeftPaneComponent implements OnInit {
 
   public get resume(): Resume {
-    return resume;
+    return this.json.resume;
   }
 
-  constructor() { }
+  constructor(private json: ResumeService) { }
 
   ngOnInit(): void {
   }
