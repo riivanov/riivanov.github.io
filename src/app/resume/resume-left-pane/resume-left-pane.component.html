@@ -9,5 +9,5 @@ Top Skills
 TypeScript
 Angular -->
 <div class="contact">Contact</div>
-<div class="email">{{ resume.contact.email }}</div>
-<div class="linked_in">{{ resume.contact.linked_in }}</div>
+<div class="email" [innerText]="resume.contact.email"></div>
+<div class="linked_in" [innerText]="resume.contact.linked_in"></div>
