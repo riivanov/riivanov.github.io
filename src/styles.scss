@@ -11,22 +11,16 @@ html * {
 html {
     display: flex;
     font-family: 'Liberation Serif Regular';
-    // font-size: clamp(1.5rem, 5vw, 3rem);
-    flex-direction: column;
 
     body {
         display: flex;
         flex-direction: column;
         flex: 1 auto;
-        justify-content: center;
         margin: 0;
 
         app {
             display: flex;
             background-color: #F7F7F7;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
     }
 }

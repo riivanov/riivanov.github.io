@@ -1,0 +1,11 @@
+resume-page {
+    display: flex;
+    width: 70%;
+    min-height: 100vh;
+    justify-content: center;
+    background-color: #FFFFFF;
+
+    &:nth-child(1) {
+        margin: 2% 0 2% 0;
+    }
+}
