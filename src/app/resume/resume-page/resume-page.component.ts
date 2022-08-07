@@ -5,11 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './resume-page.component.html',
   styleUrls: ['./resume-page.component.scss']
 })
-export class ResumePageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class ResumePageComponent {
 }

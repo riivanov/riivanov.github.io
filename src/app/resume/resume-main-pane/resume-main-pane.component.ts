@@ -5,11 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './resume-main-pane.component.html',
   styleUrls: ['./resume-main-pane.component.scss']
 })
-export class ResumeMainPaneComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class ResumeMainPaneComponent {
 }

@@ -5,11 +5,9 @@ import { Resume } from "./resume.interface";
 @Injectable({
   providedIn: 'root'
 })
-export class ResumeService {
+export class ResumeJSONService {
 
   public get resume(): Resume {
     return resume;
   }
-
-  constructor() { }
 }
