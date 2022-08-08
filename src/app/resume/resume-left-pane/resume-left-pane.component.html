@@ -8,6 +8,23 @@ developer.leialo�.com (Por�olio)
 Top Skills
 TypeScript
 Angular -->
-<div class="contact">Contact</div>
-<div class="email" [innerText]="resume.contact.email"></div>
-<div class="linked_in" [innerText]="resume.contact.linked_in"></div>
+<div class="contact-skills-container">
+
+    <div class="contact-header-list">
+        <div class="header">Contact</div>
+        <ul class="contact-list">
+            <li class="email" [innerText]="resume.contact.email"></li>
+            <li class="linked_in" [innerText]="resume.contact.linked_in"></li>
+            <li class="website" [innerText]="resume.contact.websites.leia"></li>
+        </ul>
+    </div>
+
+    <div class="skill-header-list">
+        <div class="header">Top Skills</div>
+        <ul class="skill-list">
+            <li class="skill">Angular</li>
+            <li class="skill">Typescript</li>
+            <li class="skill">Git</li>
+        </ul>
+    </div>
+</div>

@@ -1,12 +1,13 @@
 :host {
+    flex-direction: column;
+    height: 50vh;
+
     .name{
         font-weight: 600;
         font-size: 3rem;
         line-height: 1.5;
     }
-    .about {
 
-    }
     .location {
         font-size: 9;
         font-family: 'Lato-Regular';

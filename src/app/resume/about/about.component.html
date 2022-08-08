@@ -1,3 +1,8 @@
 <div class="name" [innerText]="resume.contact.name.first + ' ' + resume.contact.name.last"></div>
 <div class="about" [innerText]="resume.contact.about"></div>
 <div class="location" [innerText]="resume.contact.location.city + ',' + resume.contact.location.country"></div>
+
+<div class="skills-container">
+    <div class="header">Summary</div>
+    <div class="skill" *ngFor="let skill of resume.skills" [innerText]="skill"></div>
+</div>
