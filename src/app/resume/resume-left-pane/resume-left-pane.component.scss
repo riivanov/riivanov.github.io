@@ -11,21 +11,21 @@
         height: 50vh;
         justify-content: space-evenly;
 
-        .contact-header-list {
+        .contact-details {
             flex-direction: column;
+            align-self: center;
+            width: 80%;
 
-            .contact-list {
-                flex-direction: column;
+            .header {
+                font-size: 1.3rem;
+                line-height: 3rem;
             }
         }
 
-        .skill-header-list {
+        .skill-list {
             flex-direction: column;
-
-            .skill-list {
-                list-style-type: none;
-                flex-direction: column;
-            }
+            align-self: center;
+            width: 80%;
         }
     }
 }

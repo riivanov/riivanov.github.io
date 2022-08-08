@@ -10,21 +10,21 @@ TypeScript
 Angular -->
 <div class="contact-skills-container">
 
-    <div class="contact-header-list">
+    <div class="contact-details">
         <div class="header">Contact</div>
-        <ul class="contact-list">
-            <li class="email" [innerText]="resume.contact.email"></li>
-            <li class="linked_in" [innerText]="resume.contact.linked_in"></li>
-            <li class="website" [innerText]="resume.contact.websites.leia"></li>
-        </ul>
+        <!-- <ul class="contact-list"> -->
+        <div class="email" [innerText]="resume.contact.email"></div>
+        <span class="linked_in" [innerText]="resume.contact.linked_in"></span>
+        <div class="website" [innerText]="resume.contact.websites.leia"></div>
+        <!-- </ul> -->
     </div>
 
-    <div class="skill-header-list">
+    <div class="skill-list">
         <div class="header">Top Skills</div>
-        <ul class="skill-list">
-            <li class="skill">Angular</li>
-            <li class="skill">Typescript</li>
-            <li class="skill">Git</li>
-        </ul>
+        <!-- <ul class="skill-list"> -->
+        <div class="skill">Angular</div>
+        <div class="skill">Typescript</div>
+        <div class="skill">Git</div>
+        <!-- </ul> -->
     </div>
 </div>
