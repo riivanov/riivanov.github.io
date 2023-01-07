@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Won't work on Windows; Linux only
+if ! test -d ./dist; then
+  git worktree add dist dist 
+fi
