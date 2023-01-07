@@ -7,7 +7,6 @@
     "start": "ng serve",
     "build": "ng build",
     "dist": "ng build --configuration production && echo 'gitdir: ../.git/worktrees/dist' > ./dist/.git",
-    "preinstall": "bash -c '! test -d ./dist && git worktree add -f dist dist || rm -rf ./dist'",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
