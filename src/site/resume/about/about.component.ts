@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { ResumeJSONService } from "../resume-json.service";
-import { Resume } from "../resume.interface";
+import { ResumeJSONService } from "src/site/resume/resume-json.service";
+import { Resume } from "src/site/model/resume.interface";
 
 @Component({
   selector: "about",
@@ -8,6 +8,7 @@ import { Resume } from "../resume.interface";
   styleUrls: ["./about.component.scss"],
 })
 export class AboutComponent {
+
   public get resume(): Resume {
     return this.json.resume;
   }
