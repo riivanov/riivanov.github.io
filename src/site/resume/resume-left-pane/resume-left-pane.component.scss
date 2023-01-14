@@ -1,31 +1,8 @@
 :host {
-    flex-direction: column;
-    flex: 1 0 30%;
-    align-items: center;
-    color: #E1E9EE;
-    background-color: #293E49;
-    border-right: thin solid #5B6B73;
-
-    .contact-skills-container {
-        flex-direction: column;
-        height: 50vh;
-        justify-content: space-evenly;
-
-        .contact-details {
-            flex-direction: column;
-            align-self: center;
-            width: 80%;
-
-            .header {
-                font-size: 1.3rem;
-                line-height: 3rem;
-            }
-        }
-
-        .skill-list {
-            flex-direction: column;
-            align-self: center;
-            width: 80%;
-        }
-    }
+  flex-direction: column;
+  flex: 1 0 30%;
+  align-items: center;
+  color: #e1e9ee;
+  background-color: #293e49;
+  border-right: thin solid #5b6b73;
 }
