@@ -10,7 +10,7 @@
             "country": "Bulgaria"
         },
         "email" : "riivanov63@gmail.com",
-        "linked_in" : "https://www.linkedin.com/in/radoslav-ivanov-51366b240",
+        "linked_in" : "https://www.linkedin.com/in/riiva",
         "websites" : {
             "leia" : "https://developer.leialoft.com",
             "chapkinlab": "https://chapkinlab.tamu.edu/"
@@ -73,7 +73,7 @@
         {
             "company": "Chapkin Lab",
             "position": {
-                "title": "Technical Lab Assistant / Software Developer",
+                "title": "Lab Assistant / Software Developer",
                 "duration": {
                     "from": "09.01.2012",
                     "to": "05.01.2017"

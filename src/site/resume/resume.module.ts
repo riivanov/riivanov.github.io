@@ -11,6 +11,7 @@ import { ExperienceComponent } from "./resume-main-pane/experience/experience.co
 import { ResumeMainPaneComponent } from "./resume-main-pane/resume-main-pane.component";
 import { ResumePageContainerComponent } from "./resume-page-container/resume-page-container.component";
 import { ResumePageComponent } from "./resume-page/resume-page.component";
+import { ContributionComponent } from './resume-main-pane/experience/contribution/contribution.component';
 
 @NgModule({
   imports: [CommonModule],
@@ -25,6 +26,7 @@ import { ResumePageComponent } from "./resume-page/resume-page.component";
     SkillListComponent,
     ExperienceComponent,
     DurationPipe,
+    ContributionComponent,
   ],
   providers: [ResumeJSONService, DatePipe],
   exports: [ResumePageContainerComponent],

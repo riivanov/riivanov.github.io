@@ -7,13 +7,13 @@ import { Experience, Location } from "src/site/model/experience.interface";
   styleUrls: ["./experience.component.scss"],
 })
 export class ExperienceComponent {
-  _experience: Experience = null;
+  #_experience: Experience = null;
   @Input()
   public set experience(exp: Experience) {
-    this._experience = exp;
+    this.#_experience = exp;
   }
   public get experience(): Experience {
-    return this._experience;
+    return this.#_experience;
   }
 
   public get loc(): Location {

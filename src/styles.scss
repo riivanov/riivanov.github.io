@@ -9,8 +9,8 @@
 
 html {
   display: flex;
-  // flex-flow: row wrap;
   font-family: "Liberation Serif Regular";
+  font-size: medium;
 
   * {
     // https://stackoverflow.com/questions/13430897/how-to-override-font-boosting-in-mobile-chrome
@@ -21,7 +21,6 @@ html {
 
 body {
   display: flex;
-  // flex-flow: row wrap;
   flex-direction: column;
   flex: 1 auto;
   margin: 0;

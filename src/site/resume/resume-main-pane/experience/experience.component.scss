@@ -1,8 +1,11 @@
 :host {
   height: 100%;
   flex-direction: column;
+  margin-top: 1.5rem;
 
   .position-title {
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.3333;
   }
 }
