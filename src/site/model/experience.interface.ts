@@ -1,15 +1,17 @@
+export interface Location {
+  city: string;
+  state: string;
+}
+export interface Duration {
+  from: string;
+  to: string;
+}
 export interface Experience {
-    "company" : string,
-    "position": {
-        "title": string,
-        "duration": {
-            "from" : string,
-            "to" : string
-        },
-        "location": {
-            "city": string,
-            "state": string
-        }
-    },
-    "contributions" : string[]
+  company: string;
+  position: {
+    title: string;
+    duration: Duration;
+    location: Location;
+  };
+  contributions: string[];
 }
