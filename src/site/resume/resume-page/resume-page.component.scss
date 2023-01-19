@@ -1,13 +1,14 @@
-:host{
-    flex: 1 0 auto;
-    box-shadow: 1rem 1rem 1rem 1rem #9D9D9D;
-    margin: 0 0 2% 0;
-    width: 70%;
-    min-height: 100vh;
-    justify-content: center;
-    background-color: #FFFFFF;
+:host {
+  flex: 1 0 auto;
+  box-shadow: 1rem 1rem 1rem 1rem #2c1e16;
+  margin: 0 0 2% 0;
+  width: 70%;
+  min-height: 100vh;
+  justify-content: center;
+  background-color: #f0eff4;
+  //   background-color: #ffffff;
 
-    &:nth-child(1) {
-        margin: 2% 0 2% 0;
-    }
+  &:nth-child(1) {
+    margin: 2% 0 2% 0;
+  }
 }

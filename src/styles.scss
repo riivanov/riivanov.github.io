@@ -1,32 +1,32 @@
 @font-face {
-    font-family: LiberationSerif-Regular;
-    src: url(./assets/LiberationSerif-Regular.ttf); 
+  font-family: LiberationSerif-Regular;
+  src: url(./assets/LiberationSerif-Regular.ttf);
 }
 @font-face {
-    font-family: Lato-Regular;
-    src: url(./assets/Lato-Regular.ttf); 
+  font-family: Lato-Regular;
+  src: url(./assets/Lato-Regular.ttf);
 }
 
 html {
-    display: flex;
-    // flex-flow: row wrap;
-    font-family: 'Liberation Serif Regular';
+  display: flex;
+  // flex-flow: row wrap;
+  font-family: "Liberation Serif Regular";
 
-    * {
-        // https://stackoverflow.com/questions/13430897/how-to-override-font-boosting-in-mobile-chrome
-        max-height:1000000rem;
-        word-break: break-word;
-    }
+  * {
+    // https://stackoverflow.com/questions/13430897/how-to-override-font-boosting-in-mobile-chrome
+    max-height: 1000000rem;
+    word-break: break-word;
+  }
 }
 
 body {
-    display: flex;
-    // flex-flow: row wrap;
-    flex-direction: column;
-    flex: 1 auto;
-    margin: 0;
+  display: flex;
+  // flex-flow: row wrap;
+  flex-direction: column;
+  flex: 1 auto;
+  margin: 0;
 
-    *{
-        display: flex;
-    }
+  * {
+    display: flex;
+  }
 }

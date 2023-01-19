@@ -1,4 +1,18 @@
 :host {
-    // flex-flow: row wrap;
-    background-color: #F7F7F7;
+  position: relative;
+  &::before {
+    content: "";
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.6) 100%),
+      url("/assets/background3.webp");
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transform: scaleX(-1);
+  }
 }
