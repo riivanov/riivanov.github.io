@@ -23,7 +23,8 @@
   "angularCompilerOptions": {
     "enableIvy": true,
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "strictTemplates": true
   },
   "files": ["src/main.ts", "src/polyfills.ts"]
 }
