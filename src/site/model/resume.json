@@ -85,7 +85,7 @@
             },
             "contributions": [
                 "Contributed to a gene sequencing pipeline for the mapping and analysis of gene datasets against a general reference genome.",
-                "Maintained a Nginx, UWSGI, Flask, Python, Julia, and R web applica�on, currently in private beta, which automates the analysis and mapping of gene sequencing datasets through the use of the aforementioned pipeline Classiﬁcation, Diﬀerential Expression Analysis, and CCA.",
+                "Maintained a Nginx, UWSGI, Flask, Python, Julia, and R web application, currently in private beta, which automates the analysis and mapping of gene sequencing datasets through the use of the aforementioned pipeline Classiﬁcation, Diﬀerential Expression Analysis, and CCA.",
                 "Created a dynamic SQL generator using sqlite and .NET 4.5 to transform gene sequencing data from Microsoft Excel documents or CSV ﬁles in a user deﬁned manner.",
                 "Worked closely with end users to ﬁnalize codebases to their speciﬁcations.",
                 "Used dd to revive dead and otherwise unrecoverable system hard-drives, knowledge of the yum, pacman, apt-get, and emerge package managers, etc.",
