@@ -46,6 +46,10 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "dev" : {
+              "sourceMap": true,
+              "optimization": false
             }
           }
         },
@@ -58,6 +62,9 @@
           "configurations": {
             "production": {
               "browserTarget": "site:build:production"
+            },
+            "dev" : {
+              "browserTarget": "site:build:dev"
             }
           }
         },

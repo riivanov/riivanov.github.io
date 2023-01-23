@@ -1,7 +1,7 @@
-import { WindowSize } from "./../../../model/window.interface";
-import { ResumePageComponent } from "./../../resume-page/resume-page.component";
 import { AfterViewInit, Component, ElementRef, HostListener, Input } from "@angular/core";
 import { Experience, Location } from "src/site/model/experience.interface";
+import { WindowSize } from "src/site/model/window.interface";
+import { SizeService } from "src/site/services/size.service";
 
 @Component({
   selector: "experience",
@@ -32,7 +32,7 @@ export class ExperienceComponent implements AfterViewInit {
     return this.#_size;
   }
 
-  constructor(private page: ResumePageComponent, private el: ElementRef<HTMLElement>) {
+  constructor(private el: ElementRef<HTMLElement>, private area: SizeService) {
     this.size = {
       height: el.nativeElement.offsetHeight,
       width: el.nativeElement.offsetWidth,
@@ -41,10 +41,10 @@ export class ExperienceComponent implements AfterViewInit {
 
   @HostListener("window:resize")
   private getSize() {
-    this.size = { height: this.el.nativeElement.offsetHeight, width: this.el.nativeElement.offsetWidth };
+    this.size = this.area.getSize(this.el);
   }
 
   ngAfterViewInit(): void {
-    this.size = { height: this.el.nativeElement.offsetHeight, width: this.el.nativeElement.offsetWidth };
+    this.size = this.area.getSize(this.el);
   }
 }

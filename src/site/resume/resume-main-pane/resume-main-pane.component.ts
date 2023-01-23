@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Experience } from "src/site/model/experience.interface";
-import { ResumeJSONService } from "../resume-json.service";
+import { ResumeJSONService } from "src/site/services/resume-json.service";
 
 @Component({
   selector: "resume-main-pane",

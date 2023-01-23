@@ -1,7 +1,6 @@
-import { Resume } from "src/site/model/resume.interface";
 import { Component } from "@angular/core";
-import { ResumeJSONService } from "src/site/resume/resume-json.service";
 import { Contact } from "src/site/model/contact.interface";
+import { ResumeJSONService } from "src/site/services/resume-json.service";
 
 @Component({
   selector: "contact-details",

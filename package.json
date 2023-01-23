@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --configuration=dev",
     "build": "ng build",
     "dist": "ng build --configuration production && echo 'gitdir: ../.git/worktrees/dist' > ./dist/.git",
     "test": "ng test",
