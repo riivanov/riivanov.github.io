@@ -1,5 +1,4 @@
-import { Component, HostListener } from "@angular/core";
-import { WindowSize } from "./../../model/window.interface";
+import { Component, EventEmitter, Output } from "@angular/core";
 
 @Component({
   selector: "resume-page",

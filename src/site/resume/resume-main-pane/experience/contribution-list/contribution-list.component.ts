@@ -2,11 +2,11 @@ import { Component, Input } from "@angular/core";
 import { Contributions } from "src/site/model/experience.interface";
 
 @Component({
-  selector: "contribution",
-  templateUrl: "./contribution.component.html",
-  styleUrls: ["./contribution.component.scss"],
+  selector: "contribution-list",
+  templateUrl: "./contribution-list.component.html",
+  styleUrls: ["./contribution-list.component.scss"],
 })
-export class ContributionComponent {
+export class ContributionListComponent {
   #_contributions = [];
 
   @Input()

@@ -7,7 +7,7 @@ import { ContactDetailsComponent } from "./resume-left-pane/contact-skills-conta
 import { ContactSkillsContainerComponent } from "./resume-left-pane/contact-skills-container/contact-skills-container.component";
 import { SkillListComponent } from "./resume-left-pane/contact-skills-container/skill-list/skill-list.component";
 import { ResumeLeftPaneComponent } from "./resume-left-pane/resume-left-pane.component";
-import { ContributionComponent } from "./resume-main-pane/experience/contribution/contribution.component";
+import { ContributionListComponent } from "./resume-main-pane/experience/contribution-list/contribution-list.component";
 import { DurationPipe } from "./resume-main-pane/experience/duration.pipe";
 import { ExperienceComponent } from "./resume-main-pane/experience/experience.component";
 import { ResumeMainPaneComponent } from "./resume-main-pane/resume-main-pane.component";
@@ -27,7 +27,7 @@ import { ResumePageComponent } from "./resume-page/resume-page.component";
     SkillListComponent,
     ExperienceComponent,
     DurationPipe,
-    ContributionComponent,
+    ContributionListComponent,
   ],
   providers: [SizeService, ResumeJSONService, DatePipe],
   exports: [ResumePageContainerComponent],
