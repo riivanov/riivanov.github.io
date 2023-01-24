@@ -1,7 +1,7 @@
-import { SizeService } from "src/site/services/size.service";
-import { Component, QueryList, ViewChildren } from "@angular/core";
+import { AfterViewInit, Component, QueryList, ViewChildren } from "@angular/core";
 import { Experience } from "src/site/model/experience.interface";
 import { ResumeJSONService } from "src/site/services/resume-json.service";
+import { SizeService } from "src/site/services/size.service";
 import { ExperienceComponent } from "./experience/experience.component";
 
 @Component({
@@ -9,7 +9,7 @@ import { ExperienceComponent } from "./experience/experience.component";
   templateUrl: "./resume-main-pane.component.html",
   styleUrls: ["./resume-main-pane.component.scss"],
 })
-export class ResumeMainPaneComponent {
+export class ResumeMainPaneComponent implements AfterViewInit {
   @ViewChildren(ExperienceComponent) exps: QueryList<ExperienceComponent>;
 
   public get experiences(): Experience[] {

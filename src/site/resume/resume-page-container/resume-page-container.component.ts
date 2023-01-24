@@ -1,7 +1,6 @@
-import { Component, ElementRef, HostListener, ViewChild, ViewContainerRef } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewContainerRef } from "@angular/core";
 import { WindowSize } from "src/site/model/window.interface";
 import { SizeService } from "src/site/services/size.service";
-import { ExperienceComponent } from "../resume-main-pane/experience/experience.component";
 import { ResumePageComponent } from "../resume-page/resume-page.component";
 
 @Component({
@@ -9,12 +8,7 @@ import { ResumePageComponent } from "../resume-page/resume-page.component";
   templateUrl: "./resume-page-container.component.html",
   styleUrls: ["./resume-page-container.component.scss"],
 })
-export class ResumePageContainerComponent {
-  @ViewChild(ExperienceComponent) experience: ExperienceComponent;
-
-  @ViewChild("container", { read: ViewContainerRef })
-  container: ViewContainerRef;
-
+export class ResumePageContainerComponent implements OnInit, AfterViewInit {
   #_size: WindowSize = null;
   public set size(val: WindowSize) {
     this.#_size = val;
@@ -23,17 +17,30 @@ export class ResumePageContainerComponent {
     return this.#_size;
   }
 
-  constructor(private el: ElementRef<HTMLElement>, private svcSize: SizeService) {
-    svcSize.resizeNeeded$.subscribe((val) => {
+  constructor(
+    private svcSize: SizeService,
+    private el: ElementRef<ResumePageContainerComponent>,
+    private container: ViewContainerRef,
+    private renderer: Renderer2
+  ) {}
+
+  ngOnInit() {
+    this.svcSize.resizeNeeded$.subscribe((val) => {
       console.log("resizing");
+      if (this.container.length) {
+        return;
+      }
+      const cmp = this.container.createComponent(ResumePageComponent);
+      this.renderer.appendChild(this.el.nativeElement, cmp.location.nativeElement);
+
+      const html = cmp.location.nativeElement as HTMLElement;
+      const mainPane = html.children.item(html.children.length - 1);
+      mainPane.replaceChildren(""); // blank the resume-main-pane
     });
   }
 
-  createNewPage() {
-    this.container.createComponent(ResumePageComponent);
-  }
-
   ngAfterViewInit() {
+    console.log("page-container");
     this.size = { height: window.innerHeight, width: window.innerWidth };
   }
 }
