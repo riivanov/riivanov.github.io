@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, QueryList, ViewChildren } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from "@angular/core";
 import { Experience } from "src/site/model/experience.interface";
 import { ResumeJSONService } from "src/site/services/resume-json.service";
 import { SizeService } from "src/site/services/size.service";
@@ -12,11 +12,11 @@ import { ExperienceComponent } from "./experience/experience.component";
 export class ResumeMainPaneComponent implements AfterViewInit {
   @ViewChildren(ExperienceComponent) exps: QueryList<ExperienceComponent>;
 
-  public get experiences(): Experience[] {
+  get experiences(): Experience[] {
     return this.json.resume.experience;
   }
 
-  constructor(private json: ResumeJSONService, private svcSize: SizeService) {}
+  constructor(private el: ElementRef<HTMLElement>, private json: ResumeJSONService, private svcSize: SizeService) {}
 
   ngAfterViewInit() {
     let size = 0;
