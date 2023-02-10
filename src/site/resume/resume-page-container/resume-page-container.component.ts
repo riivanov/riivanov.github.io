@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewContainerRef } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewContainerRef,
+} from "@angular/core";
 import { WindowSize } from "src/site/model/window.interface";
 import { SizeService } from "src/site/services/size.service";
 import { ResumePageComponent } from "../resume-page/resume-page.component";
@@ -31,7 +38,10 @@ export class ResumePageContainerComponent implements OnInit, AfterViewInit {
         return;
       }
       const cmp = this.container.createComponent(ResumePageComponent);
-      this.renderer.appendChild(this.el.nativeElement, cmp.location.nativeElement);
+      this.renderer.appendChild(
+        this.el.nativeElement,
+        cmp.location.nativeElement
+      );
 
       const html = cmp.location.nativeElement as HTMLElement;
       const mainPane = html.children.item(html.children.length - 1);

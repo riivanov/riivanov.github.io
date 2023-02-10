@@ -1,6 +1,9 @@
-import './polyfills';
+import "./polyfills";
 
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { SiteModule } from './site/site.module';
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { SiteModule } from "./site/site.module";
 
-platformBrowserDynamic().bootstrapModule(SiteModule).then(ref => {}).catch(err => console.error(err));
+platformBrowserDynamic()
+  .bootstrapModule(SiteModule)
+  .then((ref) => {})
+  .catch((err) => console.error(err));
