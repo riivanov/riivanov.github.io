@@ -7,7 +7,7 @@ import { Contributions } from "src/site/model/experience.interface";
   styleUrls: ["./contribution-list.component.scss"],
 })
 export class ContributionListComponent {
-  #_contributions = [];
+  #_contributions = [] as string[];
 
   @Input()
   public set contributions(contrib: Contributions) {

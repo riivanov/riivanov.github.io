@@ -6,5 +6,5 @@ import { Component, Input } from "@angular/core";
   styleUrls: ["./contribution.component.scss"],
 })
 export class ContributionComponent {
-  @Input() contrib: string;
+  @Input() contrib!: string;
 }
