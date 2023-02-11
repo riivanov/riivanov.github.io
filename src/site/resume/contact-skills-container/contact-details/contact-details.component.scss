@@ -1,7 +1,9 @@
 :host {
-  flex-direction: column;
-  align-self: center;
-  width: 80%;
+  display: grid;
+  grid-auto-flow: row;
+  // flex-direction: column;
+  // align-self: center;
+  // width: 80%;
 
   .header {
     font-size: 1.3rem;
