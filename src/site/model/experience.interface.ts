@@ -1,3 +1,5 @@
+import { ElementRef } from "@angular/core";
+
 export type Contributions = string[];
 
 export interface Location {
@@ -18,4 +20,9 @@ export interface Experience {
     location: Location;
   };
   contributions: Contributions;
+}
+
+export interface ExperienceWithOverflow {
+  experience: ElementRef<HTMLElement>;
+  overflow: number;
 }

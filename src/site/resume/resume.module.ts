@@ -1,6 +1,5 @@
 import { CommonModule, DatePipe } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { ResumeJSONService } from "src/site/services/resume-json.service";
 import { AboutComponent } from "./about/about.component";
 import { ContactDetailsComponent } from "./contact-skills-container/contact-details/contact-details.component";
 import { ContactSkillsContainerComponent } from "./contact-skills-container/contact-skills-container.component";

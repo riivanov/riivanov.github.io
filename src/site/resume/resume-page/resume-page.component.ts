@@ -24,8 +24,6 @@ export class ResumePageComponent {
   @ViewChildren(ExperienceComponent, { read: ElementRef })
   exps!: QueryList<ElementRef<HTMLElement>>;
 
-  #pageBreak = null as unknown as HTMLElement;
-
   get experiences() {
     return this.json.resume.experience;
   }
@@ -43,36 +41,20 @@ export class ResumePageComponent {
   }
 
   checkOverflow(experiences: ElementRef<HTMLElement>[]) {
-    const { experience, preOverflowSize } =
-      this.svcPagination.getOverflowingExp(experiences);
+    const exp = this.svcPagination.getOverflowingExp(experiences);
 
-    if (experience) {
-      if (this.#pageBreak) this.#pageBreak.remove();
-
-      // Create and insert new page break div
-      this.#pageBreak = this.renderer.createElement("div") as HTMLElement;
-      this.renderer.setStyle(
-        this.#pageBreak,
-        "height",
-        window.innerHeight - preOverflowSize
-      );
-      this.renderer.addClass(this.#pageBreak, "page-break");
-      this.renderer.insertBefore(
-        this.el.nativeElement,
-        this.#pageBreak,
-        experience.nativeElement
-      );
-
+    if (exp) {
+      this.svcPagination.insertPageBreak(this.renderer, this.el, exp);
       // Span contact-skills-container to page break's row
-      const breakOnRow = this.svcPagination.getRowPositionInGrid(
-        this.el.nativeElement,
-        this.#pageBreak
-      );
-      this.renderer.setStyle(
-        this.contact.nativeElement,
-        "grid-row",
-        `span ${breakOnRow}`
-      );
+      // const breakOnRow = this.svcPagination.getRowPositionInGrid(
+      //   this.el.nativeElement,
+      //   this.#pageBreak
+      // );
+      // this.renderer.setStyle(
+      //   this.contact.nativeElement,
+      //   "grid-row",
+      //   `span ${breakOnRow}`
+      // );
     }
   }
 
