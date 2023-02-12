@@ -6,7 +6,8 @@ import { ExperienceWithOverflow } from "../model/experience.interface";
   providedIn: "root",
 })
 export class PaginationService {
-  #pageBreak = null as unknown as HTMLDivElement;
+  #pageBreaks = new Array<HTMLDivElement>();
+  #ovflExps = new Array<ExperienceWithOverflow>();
 
   getSize(el: ElementRef<HTMLElement>): WindowSize {
     let style = window.getComputedStyle(el.nativeElement);
@@ -23,6 +24,50 @@ export class PaginationService {
       .reduce((prev, cur) => prev + cur);
 
     return { height, width: el.nativeElement.offsetWidth };
+  }
+
+  clearOverflowExperiences() {
+    this.#ovflExps = new Array<ExperienceWithOverflow>();
+  }
+
+  paginate(experiences: ElementRef<HTMLElement>[]) {
+    const ovfl = this.getOverflowingExp(experiences);
+    if (ovfl) {
+      if (!this.#ovflExps.includes(ovfl)) this.#ovflExps.push(ovfl);
+      const idx = experiences.indexOf(ovfl.experience);
+      this.paginate(experiences.slice(idx > 0 ? idx : 1));
+    }
+
+    return this.#ovflExps;
+  }
+
+  clearPageBreaks() {
+    for (let brk of this.#pageBreaks) {
+      brk.remove();
+    }
+    this.#pageBreaks = new Array();
+  }
+
+  insertPageBreak(
+    renderer: Renderer2,
+    parent: ElementRef<HTMLElement>,
+    exps: ExperienceWithOverflow[]
+  ) {
+    if (this.#pageBreaks.length) this.clearPageBreaks();
+
+    // Create and insert new page break div
+    for (let exp of exps) {
+      const brk = renderer.createElement("div") as HTMLDivElement;
+      this.#pageBreaks.push(brk);
+      console.log(this.#pageBreaks);
+      renderer.setStyle(brk, "height", window.innerHeight - exp.overflow);
+      renderer.addClass(brk, "page-break");
+      renderer.insertBefore(
+        parent.nativeElement,
+        brk,
+        exp.experience.nativeElement
+      );
+    }
   }
 
   getOverflowingExp(
@@ -46,28 +91,6 @@ export class PaginationService {
     }
 
     return null;
-  }
-
-  insertPageBreak(
-    renderer: Renderer2,
-    parent: ElementRef<HTMLElement>,
-    before: ExperienceWithOverflow
-  ) {
-    if (this.#pageBreak) this.#pageBreak.remove();
-
-    // Create and insert new page break div
-    this.#pageBreak = renderer.createElement("div") as HTMLDivElement;
-    renderer.setStyle(
-      this.#pageBreak,
-      "height",
-      window.innerHeight - before.overflow
-    );
-    renderer.addClass(this.#pageBreak, "page-break");
-    renderer.insertBefore(
-      parent.nativeElement,
-      this.#pageBreak,
-      before.experience.nativeElement
-    );
   }
 
   getRowPositionInGrid(grid: HTMLElement, el: HTMLElement) {
