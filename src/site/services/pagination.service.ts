@@ -6,8 +6,8 @@ import { ExperienceWithOverflow } from "../model/experience.interface";
   providedIn: "root",
 })
 export class PaginationService {
-  #pageBreaks = new Array<HTMLDivElement>();
   #ovflExps = new Array<ExperienceWithOverflow>();
+  pageBreaks = new Array<HTMLDivElement>();
 
   getSize(el: ElementRef<HTMLElement>): WindowSize {
     let style = window.getComputedStyle(el.nativeElement);
@@ -41,34 +41,6 @@ export class PaginationService {
     return this.#ovflExps;
   }
 
-  insertPageBreak(
-    renderer: Renderer2,
-    parent: ElementRef<HTMLElement>,
-    exps: ExperienceWithOverflow[]
-  ) {
-    // Remove previous page breaks; Start fresh
-    if (this.#pageBreaks.length) {
-      for (let brk of this.#pageBreaks) {
-        brk.remove();
-      }
-      this.#pageBreaks = new Array();
-    }
-
-    // Create and insert new page break div
-    for (let exp of exps) {
-      const brk = renderer.createElement("div") as HTMLDivElement;
-      this.#pageBreaks.push(brk);
-      console.log(this.#pageBreaks);
-      renderer.setStyle(brk, "height", window.innerHeight - exp.overflow);
-      renderer.addClass(brk, "page-break");
-      renderer.insertBefore(
-        parent.nativeElement,
-        brk,
-        exp.experience.nativeElement
-      );
-    }
-  }
-
   getOverflowingExp(
     experiences: ElementRef<HTMLElement>[]
   ): ExperienceWithOverflow | null {
@@ -92,13 +64,41 @@ export class PaginationService {
     return null;
   }
 
-  getRowPositionInGrid(grid: HTMLElement, el: HTMLElement) {
+  insertPageBreak(
+    renderer: Renderer2,
+    parent: ElementRef<HTMLElement>,
+    exps: ExperienceWithOverflow[]
+  ) {
+    // Remove previous page breaks; Start fresh
+    if (this.pageBreaks.length) {
+      for (let brk of this.pageBreaks) {
+        brk.remove();
+      }
+      this.pageBreaks = new Array();
+    }
+
+    // Create and insert new page break div
+    for (let exp of exps) {
+      const brk = renderer.createElement("div") as HTMLDivElement;
+      this.pageBreaks.push(brk);
+      // console.log(this.#pageBreaks);
+      renderer.setStyle(brk, "height", window.innerHeight - exp.overflow);
+      renderer.addClass(brk, "page-break");
+      renderer.setAttribute(brk, "dynamic", "");
+      renderer.insertBefore(
+        parent.nativeElement,
+        brk,
+        exp.experience.nativeElement
+      );
+    }
+  }
+  getRowPositionInGrid(grid: HTMLElement, pageBreak: HTMLDivElement) {
     const numRows = window
       .getComputedStyle(grid)
       .gridTemplateRows.split(" ").length;
     const rowHeight = grid.clientHeight / numRows;
-    const elementRect = el.getBoundingClientRect();
-    const gridRow = Math.ceil(elementRect.bottom / rowHeight);
+    const divRect = pageBreak.getBoundingClientRect();
+    const gridRow = Math.floor(divRect.top / rowHeight);
     return gridRow;
   }
 }

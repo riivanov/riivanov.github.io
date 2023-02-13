@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
 
-import { SiteComponent } from "./site.component";
 import { ResumeModule } from "./resume/resume.module";
+import { SiteComponent } from "./site.component";
 
 @NgModule({
   imports: [BrowserModule, FormsModule, ResumeModule],

@@ -8,6 +8,7 @@ import { ContributionListComponent } from "./experience/contribution-list/contri
 import { ContributionComponent } from "./experience/contribution-list/contribution/contribution.component";
 import { DurationPipe } from "./experience/duration.pipe";
 import { ExperienceComponent } from "./experience/experience.component";
+import { PageContainerComponent } from "./resume-page/page-container/page-container.component";
 import { ResumePageComponent } from "./resume-page/resume-page.component";
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ResumePageComponent } from "./resume-page/resume-page.component";
     DurationPipe,
     ContributionListComponent,
     ContributionComponent,
+    PageContainerComponent,
   ],
   providers: [DatePipe],
   exports: [ResumePageComponent],
