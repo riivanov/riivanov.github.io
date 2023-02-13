@@ -41,19 +41,18 @@ export class PaginationService {
     return this.#ovflExps;
   }
 
-  clearPageBreaks() {
-    for (let brk of this.#pageBreaks) {
-      brk.remove();
-    }
-    this.#pageBreaks = new Array();
-  }
-
   insertPageBreak(
     renderer: Renderer2,
     parent: ElementRef<HTMLElement>,
     exps: ExperienceWithOverflow[]
   ) {
-    if (this.#pageBreaks.length) this.clearPageBreaks();
+    // Remove previous page breaks; Start fresh
+    if (this.#pageBreaks.length) {
+      for (let brk of this.#pageBreaks) {
+        brk.remove();
+      }
+      this.#pageBreaks = new Array();
+    }
 
     // Create and insert new page break div
     for (let exp of exps) {
