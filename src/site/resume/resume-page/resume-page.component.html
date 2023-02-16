@@ -1,5 +1,8 @@
-<page-container>
+<page-container *ngFor="let page of [1]">
+  <!-- <page-container> -->
   <contact-skills-container></contact-skills-container>
-  <div #pageBreak class="page-break"></div>
-  <experience *ngFor="let exp of experiences" [experience]="exp"></experience
-></page-container>
+  <!-- <div #pageBreak class="page-break"></div> -->
+  <!-- <ng-container *ngFor="let exp of experiences"> -->
+  <experience *ngFor="let exp of experiences" [experience]="exp"></experience>
+  <!-- </ng-container> -->
+</page-container>

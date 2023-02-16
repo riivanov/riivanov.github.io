@@ -1,6 +1,15 @@
-import { ElementRef, Injectable, Renderer2 } from "@angular/core";
+import {
+  ElementRef,
+  Injectable,
+  Renderer2,
+  ViewContainerRef,
+} from "@angular/core";
 import { WindowSize } from "src/site/model/window.interface";
-import { ExperienceWithOverflow } from "../model/experience.interface";
+import {
+  Experience,
+  ExperienceWithOverflow,
+} from "../model/experience.interface";
+import { ExperienceComponent } from "./../resume/experience/experience.component";
 
 @Injectable({
   providedIn: "root",
@@ -8,6 +17,56 @@ import { ExperienceWithOverflow } from "../model/experience.interface";
 export class PaginationService {
   #ovflExps = new Array<ExperienceWithOverflow>();
   pageBreaks = new Array<HTMLDivElement>();
+
+  getPageCount(experiences: Array<Experience>, container: ViewContainerRef) {
+    // for (let exp of experience) {
+    // const frag = document.createDocumentFragment();
+    // const div = renderer.createElement("div") as HTMLDivElement;
+    const heights = experiences.map((exp) => {
+      const cmp = container.createComponent(ExperienceComponent);
+      cmp.setInput("experience", exp);
+      cmp.changeDetectorRef.detectChanges();
+      const { clientHeight } = cmp.location.nativeElement as HTMLUnknownElement;
+      cmp.destroy();
+      return clientHeight;
+    });
+
+    let sum = 0;
+    let idxSubAryStart = 0;
+    let paginatedHeights = new Array<Array<number>>();
+    console.log(heights);
+    // const paginatedExps = heights.map((curr, i, ary) => {
+    for (let i = 0; i < heights.length; ++i) {
+      if (i === 0) continue;
+      const idxPrev = i - 1;
+      const prev = heights[idxPrev];
+      sum += prev;
+      if (sum > window.innerHeight) {
+        const arySub = heights.slice(idxSubAryStart, idxPrev);
+        idxSubAryStart = idxPrev;
+        i = idxSubAryStart;
+        sum = 0;
+        paginatedHeights.push(arySub);
+      }
+      if (i === heights.length - 1)
+        paginatedHeights.push(heights.slice(idxSubAryStart, heights.length));
+    }
+    // });
+    console.log(paginatedHeights);
+
+    // container.createEmbeddedView();
+    // container.detach();
+    // cmp.hostView.detach();
+    // container.insert(cmp.hostView);
+    // cmp.hostView.
+    // div.innerHTML = JSON.stringify(exp);
+    // renderer.appendChild(container.nativeElement, div);
+    // console.log(`${div.clientHeight}${div.clientWidth},${div.offsetHeight}`);
+    // div.remove();
+    // }
+  }
+
+  // Everything except the resume.experience input should be private
 
   getSize(el: ElementRef<HTMLElement>): WindowSize {
     let style = window.getComputedStyle(el.nativeElement);

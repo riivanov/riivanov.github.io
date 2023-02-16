@@ -1,0 +1,3 @@
+contact-skills-container {
+    display: grid;
+}

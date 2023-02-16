@@ -1,5 +1,6 @@
 import { CommonModule, DatePipe } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { PageBreakDirective } from "../page-break.directive";
 import { AboutComponent } from "./about/about.component";
 import { ContactDetailsComponent } from "./contact-skills-container/contact-details/contact-details.component";
 import { ContactSkillsContainerComponent } from "./contact-skills-container/contact-skills-container.component";
@@ -24,8 +25,9 @@ import { ResumePageComponent } from "./resume-page/resume-page.component";
     ContributionListComponent,
     ContributionComponent,
     PageContainerComponent,
+    PageBreakDirective,
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, ExperienceComponent],
   exports: [ResumePageComponent],
 })
 export class ResumeModule {}

@@ -1,5 +1,11 @@
+<!-- <ng-template>
+  <div class="page-break"></div>
+</ng-template> -->
+
 <div class="position-title" [innerText]="experience.position.title"></div>
 <div class="company" [innerText]="experience.company"></div>
 <div class="duration" [innerText]="experience | duration"></div>
 <div class="location" [innerText]="loc.city + ', ' + loc.state"></div>
-<contribution-list [contributions]="experience.contributions"></contribution-list>
+<contribution-list
+  [contributions]="experience.contributions"
+></contribution-list>

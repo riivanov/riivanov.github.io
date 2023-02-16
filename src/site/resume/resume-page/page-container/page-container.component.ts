@@ -6,7 +6,9 @@ import {
   HostListener,
   QueryList,
   Renderer2,
+  ViewContainerRef,
 } from "@angular/core";
+import { ResumeJSONService } from "src/site/services/resume-json.service";
 import { ExperienceComponent } from "../../experience/experience.component";
 import { PaginationService } from "./../../../services/pagination.service";
 import { ContactSkillsContainerComponent } from "./../../contact-skills-container/contact-skills-container.component";
@@ -30,11 +32,13 @@ export class PageContainerComponent {
     private svcPagination: PaginationService,
     private renderer: Renderer2,
     private el: ElementRef<HTMLElement>
-  ) {}
+  ) // private json: ResumeJSONService,
+  // private container: ViewContainerRef // private tmpl: TemplateRef<any>
+  {}
 
   @HostListener("window:resize")
   onResize() {
-    this.checkOverflow(this.exps.toArray());
+    // this.checkOverflow(this.exps.toArray());
   }
 
   checkOverflow(experiences: ElementRef<HTMLElement>[]) {
@@ -51,7 +55,7 @@ export class PageContainerComponent {
       const breaksOnRow = this.svcPagination.pageBreaks.map((div) =>
         this.svcPagination.getRowPositionInGrid(this.el.nativeElement, div)
       );
-      console.log(breaksOnRow);
+      // console.log(breaksOnRow);
       // const breakOnRow = this.svcPagination.getRowPositionInGrid(
       //   this.el.nativeElement,
       //   brk
@@ -74,11 +78,5 @@ export class PageContainerComponent {
       // }
     }
     // console.log(this.#pageBreaks);
-  }
-
-  ngAfterViewInit() {
-    console.log(this.pageBreakDiv);
-    console.log(this.exps.toArray());
-    this.checkOverflow(this.exps.toArray());
   }
 }
