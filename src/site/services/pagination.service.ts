@@ -1,14 +1,6 @@
-import {
-  ElementRef,
-  Injectable,
-  Renderer2,
-  ViewContainerRef,
-} from "@angular/core";
-import { WindowSize } from "src/site/model/window.interface";
-import {
-  Experience,
-  ExperienceWithOverflow,
-} from "../model/experience.interface";
+import { ElementRef, Injectable, Renderer2, ViewContainerRef } from "@angular/core";
+import { Experience, ExperienceWithOverflow } from "../model/experience.interface";
+import { WindowSize } from "./../model/window.interface";
 import { ExperienceComponent } from "./../resume/experience/experience.component";
 
 @Injectable({
@@ -18,10 +10,8 @@ export class PaginationService {
   #ovflExps = new Array<ExperienceWithOverflow>();
   pageBreaks = new Array<HTMLDivElement>();
 
-  getPageCount(experiences: Array<Experience>, container: ViewContainerRef) {
-    // for (let exp of experience) {
-    // const frag = document.createDocumentFragment();
-    // const div = renderer.createElement("div") as HTMLDivElement;
+  async getPageCount(experiences: Array<Experience>, container: ViewContainerRef) {
+    console.count("getPageCount");
     const heights = experiences.map((exp) => {
       const cmp = container.createComponent(ExperienceComponent);
       cmp.setInput("experience", exp);
@@ -31,54 +21,39 @@ export class PaginationService {
       return clientHeight;
     });
 
+    console.log(heights);
+
+    // If the sum of the previous two heights is less than window.innerHeight, continue adding
+    // Until the sum is greater. Then take all of the summed items and add them to paginatedHeights as an array
+
     let sum = 0;
     let idxSubAryStart = 0;
     let paginatedHeights = new Array<Array<number>>();
-    console.log(heights);
-    // const paginatedExps = heights.map((curr, i, ary) => {
-    for (let i = 0; i < heights.length; ++i) {
-      if (i === 0) continue;
+    for (let i = 1; i < heights.length; ++i) {
       const idxPrev = i - 1;
-      const prev = heights[idxPrev];
-      sum += prev;
-      if (sum > window.innerHeight) {
-        const arySub = heights.slice(idxSubAryStart, idxPrev);
-        idxSubAryStart = idxPrev;
-        i = idxSubAryStart;
-        sum = 0;
-        paginatedHeights.push(arySub);
+      const prev = i > 0 ? heights[idxPrev] : 0;
+      const curr = heights[i];
+      sum += prev + curr;
+      if (i === heights.length - 1) {
+        paginatedHeights.push(heights.slice(idxSubAryStart));
+        break;
       }
-      if (i === heights.length - 1)
-        paginatedHeights.push(heights.slice(idxSubAryStart, heights.length));
+      if (sum < window.innerHeight) {
+        continue;
+      }
+      sum = 0;
+      const subAry = heights.slice(idxSubAryStart, i);
+      paginatedHeights.push(subAry);
+      idxSubAryStart += subAry.length;
     }
-    // });
     console.log(paginatedHeights);
-
-    // container.createEmbeddedView();
-    // container.detach();
-    // cmp.hostView.detach();
-    // container.insert(cmp.hostView);
-    // cmp.hostView.
-    // div.innerHTML = JSON.stringify(exp);
-    // renderer.appendChild(container.nativeElement, div);
-    // console.log(`${div.clientHeight}${div.clientWidth},${div.offsetHeight}`);
-    // div.remove();
-    // }
   }
 
   // Everything except the resume.experience input should be private
 
   getSize(el: ElementRef<HTMLElement>): WindowSize {
     let style = window.getComputedStyle(el.nativeElement);
-    let height = [
-      "height",
-      "padding-top",
-      "padding-bottom",
-      "border-top",
-      "border-bottom",
-      "margin-top",
-      "margin-bottom",
-    ]
+    let height = ["height", "padding-top", "padding-bottom", "border-top", "border-bottom", "margin-top", "margin-bottom"]
       .map((key) => parseInt(style.getPropertyValue(key), 10))
       .reduce((prev, cur) => prev + cur);
 
@@ -100,9 +75,7 @@ export class PaginationService {
     return this.#ovflExps;
   }
 
-  getOverflowingExp(
-    experiences: ElementRef<HTMLElement>[]
-  ): ExperienceWithOverflow | null {
+  getOverflowingExp(experiences: ElementRef<HTMLElement>[]): ExperienceWithOverflow | null {
     let size = 0;
     let preOverflowSize = 0;
     const experience = experiences.find((exp) => {
@@ -123,11 +96,7 @@ export class PaginationService {
     return null;
   }
 
-  insertPageBreak(
-    renderer: Renderer2,
-    parent: ElementRef<HTMLElement>,
-    exps: ExperienceWithOverflow[]
-  ) {
+  insertPageBreak(renderer: Renderer2, parent: ElementRef<HTMLElement>, exps: ExperienceWithOverflow[]) {
     // Remove previous page breaks; Start fresh
     if (this.pageBreaks.length) {
       for (let brk of this.pageBreaks) {
@@ -144,17 +113,11 @@ export class PaginationService {
       renderer.setStyle(brk, "height", window.innerHeight - exp.overflow);
       renderer.addClass(brk, "page-break");
       renderer.setAttribute(brk, "dynamic", "");
-      renderer.insertBefore(
-        parent.nativeElement,
-        brk,
-        exp.experience.nativeElement
-      );
+      renderer.insertBefore(parent.nativeElement, brk, exp.experience.nativeElement);
     }
   }
   getRowPositionInGrid(grid: HTMLElement, pageBreak: HTMLDivElement) {
-    const numRows = window
-      .getComputedStyle(grid)
-      .gridTemplateRows.split(" ").length;
+    const numRows = window.getComputedStyle(grid).gridTemplateRows.split(" ").length;
     const rowHeight = grid.clientHeight / numRows;
     const divRect = pageBreak.getBoundingClientRect();
     const gridRow = Math.floor(divRect.top / rowHeight);
