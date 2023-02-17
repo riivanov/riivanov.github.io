@@ -1,12 +1,7 @@
-import {
-  Component,
-  Input,
-  Output,
-  TemplateRef,
-  ViewChild,
-} from "@angular/core";
-import { ReplaySubject } from "rxjs";
+import { Component, Injector, Input } from "@angular/core";
 import { Experience, Location } from "src/site/model/experience.interface";
+import { PaginationService } from "./../../services/pagination.service";
+import { ResumeJSONService } from "./../../services/resume-json.service";
 
 @Component({
   exportAs: "expr",
@@ -32,11 +27,7 @@ export class ExperienceComponent {
     return this.experience.position.location;
   }
 
-  // constructor(private brk: PageBreakDirective) {}
-  // constructor(public el: ElementRef) {}
-  constructor() {}
+  constructor(private svcPagination: PaginationService, private json: ResumeJSONService) {}
 
-  ngAfterViewInit() {
-    // console.log(this.tmpl);
-  }
+  ngAfterViewInit() {}
 }

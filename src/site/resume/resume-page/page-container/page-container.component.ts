@@ -31,10 +31,10 @@ export class PageContainerComponent {
   constructor(
     private svcPagination: PaginationService,
     private renderer: Renderer2,
-    private el: ElementRef<HTMLElement>
-  ) // private json: ResumeJSONService,
-  // private container: ViewContainerRef // private tmpl: TemplateRef<any>
-  {}
+    private el: ElementRef<HTMLElement>,
+    private json: ResumeJSONService,
+    private vcr: ViewContainerRef // private tmpl: TemplateRef<any>
+  ) {}
 
   @HostListener("window:resize")
   onResize() {

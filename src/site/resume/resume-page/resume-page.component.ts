@@ -1,6 +1,6 @@
-import { Experience } from "./../../model/experience.interface";
-import { Component, ElementRef, HostListener, ViewChild, ViewChildren, ViewContainerRef } from "@angular/core";
+import { ChangeDetectorRef, Component, HostListener, ViewChild, ViewContainerRef } from "@angular/core";
 import { ResumeJSONService } from "src/site/services/resume-json.service";
+import { Experience } from "./../../model/experience.interface";
 import { PaginationService } from "./../../services/pagination.service";
 import { ExperienceComponent } from "./../experience/experience.component";
 
@@ -18,26 +18,26 @@ import { ExperienceComponent } from "./../experience/experience.component";
 export class ResumePageComponent {
   #pages = null as unknown as Experience[][];
 
-  // @ViewChildren(ExperienceComponent, { read: ElementRef })
-  // expsElementRefs!: any;
-  // @ViewChildren(ExperienceComponent)
-  // expsCmps!: any;
   @ViewChild(ExperienceComponent, { read: ViewContainerRef })
   container!: ViewContainerRef;
+
+  get pages(): Experience[][] {
+    return this.#pages;
+  }
 
   get experiences() {
     return this.json.resume.experience;
   }
 
-  // @HostListener("window:resize")
-  // get pages() {
-  // console.log(this.#pages);
-  // }
-
-  constructor(private json: ResumeJSONService, private svcPagination: PaginationService) {}
+  constructor(private json: ResumeJSONService, private svcPagination: PaginationService, private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
-    this.svcPagination.getPageCount(this.json.resume.experience, this.container);
-    // this.#pages =
+    this.paginateExperiences();
+  }
+
+  @HostListener("window:resize")
+  paginateExperiences() {
+    this.#pages = this.svcPagination.getPageCount(this.json.resume.experience, this.container);
+    this.cdr.detectChanges();
   }
 }

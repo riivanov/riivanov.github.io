@@ -27,7 +27,7 @@ import { ResumePageComponent } from "./resume-page/resume-page.component";
     PageContainerComponent,
     PageBreakDirective,
   ],
-  providers: [DatePipe, ExperienceComponent],
+  providers: [DatePipe],
   exports: [ResumePageComponent],
 })
 export class ResumeModule {}

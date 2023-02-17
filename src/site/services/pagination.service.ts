@@ -1,4 +1,12 @@
-import { ElementRef, Injectable, Renderer2, ViewContainerRef } from "@angular/core";
+import {
+  ChangeDetectorRef,
+  ComponentFactoryResolver,
+  ElementRef,
+  Injectable,
+  Injector,
+  Renderer2,
+  ViewContainerRef,
+} from "@angular/core";
 import { Experience, ExperienceWithOverflow } from "../model/experience.interface";
 import { WindowSize } from "./../model/window.interface";
 import { ExperienceComponent } from "./../resume/experience/experience.component";
@@ -10,11 +18,13 @@ export class PaginationService {
   #ovflExps = new Array<ExperienceWithOverflow>();
   pageBreaks = new Array<HTMLDivElement>();
 
-  async getPageCount(experiences: Array<Experience>, container: ViewContainerRef) {
-    console.count("getPageCount");
+  getPageCount(experiences: Array<Experience>, container: ViewContainerRef) {
+    // console.count("getPageCount");
     const heights = experiences.map((exp) => {
       const cmp = container.createComponent(ExperienceComponent);
-      cmp.setInput("experience", exp);
+      // cmp.setInput("experience", exp);
+      cmp.instance.experience = exp;
+      // cmp.changeDetectorRef.detach();
       cmp.changeDetectorRef.detectChanges();
       const { clientHeight } = cmp.location.nativeElement as HTMLUnknownElement;
       cmp.destroy();
@@ -28,25 +38,27 @@ export class PaginationService {
 
     let sum = 0;
     let idxSubAryStart = 0;
-    let paginatedHeights = new Array<Array<number>>();
-    for (let i = 1; i < heights.length; ++i) {
+    let paginatedExps = new Array<Array<Experience>>();
+    for (let i = 1; i < experiences.length; ++i) {
       const idxPrev = i - 1;
       const prev = i > 0 ? heights[idxPrev] : 0;
       const curr = heights[i];
       sum += prev + curr;
       if (i === heights.length - 1) {
-        paginatedHeights.push(heights.slice(idxSubAryStart));
+        paginatedExps.push(experiences.slice(idxSubAryStart));
         break;
       }
       if (sum < window.innerHeight) {
         continue;
       }
       sum = 0;
-      const subAry = heights.slice(idxSubAryStart, i);
-      paginatedHeights.push(subAry);
+      const subAry = experiences.slice(idxSubAryStart, i);
+      paginatedExps.push(subAry);
       idxSubAryStart += subAry.length;
     }
-    console.log(paginatedHeights);
+
+    console.log(paginatedExps);
+    return paginatedExps;
   }
 
   // Everything except the resume.experience input should be private
