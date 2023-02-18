@@ -1,14 +1,15 @@
 :host {
-  grid-column: 3;
-  // grid-row: span 2;
-  // grid-area: main-pane;
-  // height: fit-content;
-  // flex-direction: column;
-  // margin-top: 1.5rem;
+  margin: 5% 0 0 2%;
 
-  // .position-title {
-  //   font-size: 1.3rem;
-  //   font-weight: 600;
-  //   line-height: 1.3333;
-  // }
+  .logo-company {
+    flex-direction: row;
+
+    .logo {
+      object-fit: cover;
+    }
+  }
+
+  .company {
+    margin: 0 0 0 2%;
+  }
 }

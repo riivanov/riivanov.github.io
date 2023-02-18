@@ -1,11 +1,29 @@
-<!-- <ng-template>
-  <div class="page-break"></div>
-</ng-template> -->
-
-<div class="position-title" [innerText]="experience.position.title"></div>
-<div class="company" [innerText]="experience.company"></div>
-<div class="duration" [innerText]="experience | duration"></div>
-<div class="location" [innerText]="loc.city + ', ' + loc.state"></div>
+<div class="logo-company">
+  <img
+    class="logo"
+    [src]="experience.logo"
+    [height]="
+      position.clientHeight +
+      company.clientHeight +
+      duration.clientHeight +
+      location.clientHeight
+    "
+  />
+  <div class="company">
+    <div
+      #position
+      class="position-title"
+      [innerText]="experience.position.title"
+    ></div>
+    <div #company class="company-name" [innerText]="experience.company"></div>
+    <div #duration class="duration" [innerText]="experience | duration"></div>
+    <div
+      #location
+      class="location"
+      [innerText]="loc.city + ', ' + loc.state"
+    ></div>
+  </div>
+</div>
 <contribution-list
   [contributions]="experience.contributions"
 ></contribution-list>

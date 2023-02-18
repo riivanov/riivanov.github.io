@@ -1,5 +1,31 @@
+@import "src/_variables";
+
 :host {
   flex-direction: column;
-  align-self: center;
-  width: 80%;
+  // flex-flow: row wrap;
+  width: 85.15%;
+
+  .header {
+    font-size: 1.3rem;
+    line-height: 3rem;
+  }
+
+  .skill {
+    // flex: 1 0 100%;
+  }
+
+  @media only screen and (max-width: $mobile-large) {
+    flex-direction: row;
+    flex-flow: row wrap;
+
+    .header {
+      flex: 1 0 100%;
+      text-align: center;
+    }
+
+    .skill {
+      flex: 1;
+      text-align: center;
+    }
+  }
 }

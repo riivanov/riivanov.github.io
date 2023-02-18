@@ -10,10 +10,10 @@
             "country": "Bulgaria"
         },
         "email" : "riivanov63@gmail.com",
-        "linked_in" : "https://www.linkedin.com/in/riiva",
+        "linked_in" : "linkedin.com/in/riiva",
         "websites" : {
-            "leia" : "https://developer.leialoft.com",
-            "chapkinlab": "https://chapkinlab.tamu.edu/"
+            "leia" : "developer.leialoft.com",
+            "chapkinlab": "chapkinlab.tamu.edu/"
         }
     },
     "skills" : [
@@ -27,6 +27,7 @@
     "experience" : [
         {
             "company" : "UI Centric",
+            "logo" : "assets/ui-centric.png",
             "position": {
                 "title": "Javascript / Angular Developer",
                 "duration": {
@@ -49,6 +50,7 @@
         },
         {
             "company": "MESH",
+            "logo": "assets/mesh.png",
             "position": {
                 "title": "Javascript / Angular Developer",
                 "duration": {
@@ -72,6 +74,7 @@
         },
         {
             "company": "Chapkin Lab",
+            "logo": "assets/chapkin-lab.png",
             "position": {
                 "title": "Lab Assistant / Software Developer",
                 "duration": {
@@ -96,6 +99,7 @@
         },
         {
             "company": "McDonald Technologies",
+            "logo": "assets/mc-donald.png",
             "position": {
                 "title": "System Programmer",
                 "duration": {
@@ -116,6 +120,7 @@
         },
         {
             "company": "Freenters Inc.",
+            "logo": "assets/freenters.png",
             "position": {
                 "title": "Javascript Developer",
                 "duration": {
@@ -135,6 +140,7 @@
         },
         {
             "company": "State of Indiana",
+            "logo": "assets/indiana.png",
             "position": {
                 "title": "Software Developer",
                 "duration": {
@@ -152,6 +158,7 @@
         },
         {
             "company": "Capsher Technology",
+            "logo": "assets/capsher.png",
             "position": {
                 "title": "Junior C# Developer",
                 "duration": {

@@ -14,6 +14,7 @@ export interface Duration {
 
 export interface Experience {
   company: string;
+  logo: string;
   position: {
     title: string;
     duration: Duration;
