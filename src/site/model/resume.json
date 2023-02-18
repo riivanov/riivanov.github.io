@@ -12,8 +12,9 @@
         "email" : "riivanov63@gmail.com",
         "linked_in" : "linkedin.com/in/riiva",
         "websites" : {
+            "bwin": "bwin.com",
             "leia" : "developer.leialoft.com",
-            "chapkinlab": "chapkinlab.tamu.edu/"
+            "chapkinlab": "chapkinlab.tamu.edu"
         }
     },
     "skills" : [
@@ -25,6 +26,28 @@
         "vim"
     ],
     "experience" : [
+        {
+            "company": "Betting Locker",
+            "logo": "assets/betting-locker.png",
+            "position": {
+                "title": "Software Engineer",
+                "duration": {
+                    "from": "05.01.2019",
+                    "to": "09.01.2022"
+                },
+                "location" : {
+                    "city": "Las Vegas",
+                    "state": "Nevada (Remote)"
+                }
+            },
+            "contributions": [
+                "Worked in a 50 man team, integrating various backends, written in .NET, supporting 30 different domains, with differing themes, from the same Angular 2 codebase.",
+                "Upgraded the entire frontend from Angular v9 to Angular v14.",
+                "Upgraded the main backend to support .NET core from .NET 4.5",
+                "Refactored current implementation of the BetSlip feature, which controls user betting placement, to use a Redux state managed approach.",
+                "Took part in twice daily scrum meetings to track project status, create new JIRA tickets, and sync with team."
+            ]
+        },
         {
             "company" : "UI Centric",
             "logo" : "assets/ui-centric.png",

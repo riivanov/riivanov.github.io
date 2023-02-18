@@ -1,4 +1,4 @@
-import { ElementRef, Injectable, ViewContainerRef } from "@angular/core";
+import { Injectable, ViewContainerRef } from "@angular/core";
 import { Experience } from "../model/experience.interface";
 import { ExperienceComponent } from "./../resume/experience/experience.component";
 
@@ -13,9 +13,9 @@ export class PaginationService {
       const cmp = container.createComponent(ExperienceComponent);
       cmp.instance.experience = exp;
       cmp.changeDetectorRef.detectChanges();
-      const { clientHeight } = cmp.location.nativeElement as HTMLUnknownElement;
+      const size = this.getSize(cmp.location.nativeElement);
       cmp.destroy();
-      return clientHeight;
+      return size.height;
     });
 
     console.log(heights);
@@ -54,8 +54,8 @@ export class PaginationService {
     return paginatedExps;
   }
 
-  getSize(el: ElementRef<HTMLElement>) {
-    let style = window.getComputedStyle(el.nativeElement);
+  getSize(el: HTMLElement) {
+    let style = window.getComputedStyle(el);
     let height = [
       "height",
       "padding-top",
@@ -67,7 +67,7 @@ export class PaginationService {
     ]
       .map((key) => parseInt(style.getPropertyValue(key), 10))
       .reduce((prev, cur) => prev + cur);
-    const size = { height, width: el.nativeElement.offsetWidth };
+    const size = { height, width: el.offsetWidth };
     return size;
   }
 

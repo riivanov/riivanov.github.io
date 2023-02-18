@@ -1,6 +1,18 @@
+@import "src/_variables";
+
 :host {
   .header {
     font-size: 1.3rem;
     line-height: 3rem;
+  }
+
+  .linked-in {
+    color: $white;
+    text-decoration: none;
+  }
+
+  .website {
+    color: $white;
+    text-decoration: none;
   }
 }

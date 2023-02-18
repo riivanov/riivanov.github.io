@@ -11,6 +11,7 @@ export interface Contact {
   email: string;
   linked_in: string;
   websites: {
+    bwin: string;
     leia: string;
     chapkinlab: string;
   };

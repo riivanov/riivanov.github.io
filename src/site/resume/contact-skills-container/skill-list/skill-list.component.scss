@@ -2,19 +2,13 @@
 
 :host {
   flex-direction: column;
-  // flex-flow: row wrap;
   width: 85.15%;
 
   .header {
-    font-size: 1.3rem;
     line-height: 3rem;
   }
 
-  .skill {
-    // flex: 1 0 100%;
-  }
-
-  @media only screen and (max-width: $mobile-large) {
+  @media only screen and (max-width: $tablet) {
     flex-direction: row;
     flex-flow: row wrap;
 
