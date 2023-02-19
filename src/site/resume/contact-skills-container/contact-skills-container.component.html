@@ -1,7 +1,11 @@
-<div class="image">
+<div class="image-details">
   <img class="me" src="assets/me.jpeg" />
+  <contact-details
+    #contact
+    [showAll]="isMobile"
+    class="details"
+  ></contact-details>
 </div>
 <div class="contact-skills">
-  <contact-details class="details"></contact-details>
-  <skill-list class="skills"></skill-list>
+  <skill-list class="skills" [width]="contact.width"></skill-list>
 </div>

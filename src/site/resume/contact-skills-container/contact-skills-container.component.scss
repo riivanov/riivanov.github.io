@@ -6,8 +6,10 @@
   flex: 1;
   align-items: center;
 
-  .image {
+  .image-details {
     flex: 1;
+    align-items: center;
+
     .me {
       object-fit: cover;
       border-radius: 50%;
@@ -22,6 +24,7 @@
   }
 
   .contact-skills {
+    flex-direction: row;
     flex: 4;
 
     .details {
@@ -36,9 +39,26 @@
   @media only screen and (max-width: $tablet) {
     flex-direction: column;
 
-    .image {
-      // flex: 1 0 100%;
-      flex: unset;
+    .image-details {
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+
+      .me {
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+        overflow-clip-margin: content-box;
+        overflow: clip;
+        margin: 2% 2% 0 2%;
+        box-shadow: 0 0 0 1px;
+        height: 128px;
+        width: 128px;
+      }
+
+      .details {
+        width: 100%;
+      }
     }
 
     .contact-skills {

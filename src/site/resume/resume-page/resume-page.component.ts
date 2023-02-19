@@ -1,16 +1,14 @@
 import {
   ChangeDetectorRef,
   Component,
-  ElementRef,
-  HostListener,
   ViewChild,
   ViewContainerRef,
 } from "@angular/core";
 import { ResumeJSONService } from "src/site/services/resume-json.service";
 import { Experience } from "./../../model/experience.interface";
 import { PaginationService } from "./../../services/pagination.service";
+import { ContactSkillsContainerComponent } from "./../contact-skills-container/contact-skills-container.component";
 import { ExperienceComponent } from "./../experience/experience.component";
-import { PageContainerComponent } from "./page-container/page-container.component";
 
 // I can't divide the height of the page (11in) by the # of items because each item has a differing height.
 // 1. Instead I have to check if the heights of items add up to (>11in) and stop right before they do.
@@ -29,6 +27,9 @@ export class ResumePageComponent {
   @ViewChild(ExperienceComponent, { read: ViewContainerRef })
   container!: ViewContainerRef;
 
+  @ViewChild(ContactSkillsContainerComponent)
+  skills!: ContactSkillsContainerComponent;
+
   get pages(): Experience[][] {
     return this.#pages;
   }
@@ -41,17 +42,19 @@ export class ResumePageComponent {
     private json: ResumeJSONService,
     private svcPagination: PaginationService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) {
+    this.svcPagination.onResize.subscribe(() => this.paginateExperiences());
+  }
 
-  ngAfterViewChecked() {
+  ngAfterViewInit() {
     this.paginateExperiences();
   }
 
-  @HostListener("window:resize")
   paginateExperiences() {
     this.#pages = this.svcPagination.getPageCount(
       this.json.resume.experience,
-      this.container
+      this.container,
+      this.skills?.height
     );
     this.cdr.detectChanges();
   }

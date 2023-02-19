@@ -24,7 +24,7 @@ export class ExperienceComponent {
 
   constructor(private cdr: ChangeDetectorRef) {}
 
-  ngAfterViewInit() {
+  ngDoCheck() {
     this.cdr.detectChanges();
   }
 }

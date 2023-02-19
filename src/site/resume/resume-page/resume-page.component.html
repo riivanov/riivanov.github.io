@@ -1,7 +1,7 @@
 <ng-container *ngIf="pages; else elseBlock">
   <page-container *ngFor="let expr of pages; let numPg = index">
     <div class="left-pane">
-      <contact-skills-container *ngIf="numPg === 0"></contact-skills-container>
+      <contact-skills-container *ngIf="numPg === 0"> </contact-skills-container>
     </div>
     <div class="content">
       <experience *ngFor="let exp of expr" [experience]="exp"></experience>

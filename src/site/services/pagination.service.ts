@@ -1,4 +1,5 @@
-import { Injectable, ViewContainerRef } from "@angular/core";
+import { HostListener, Injectable, ViewContainerRef } from "@angular/core";
+import { fromEvent, Observable } from "rxjs";
 import { Experience } from "../model/experience.interface";
 import { ExperienceComponent } from "./../resume/experience/experience.component";
 
@@ -7,9 +8,14 @@ import { ExperienceComponent } from "./../resume/experience/experience.component
 })
 export class PaginationService {
   pageBreaks = new Array<HTMLDivElement>();
+  onResize = fromEvent(window, "resize");
 
-  getPageCount(experiences: Array<Experience>, container: ViewContainerRef) {
-    const heights = experiences.map((exp) => {
+  getPageCount(
+    experiences: Array<Experience>,
+    container: ViewContainerRef,
+    extraHeight: number
+  ) {
+    let heights = experiences.map((exp) => {
       const cmp = container.createComponent(ExperienceComponent);
       cmp.instance.experience = exp;
       cmp.changeDetectorRef.detectChanges();
@@ -23,13 +29,6 @@ export class PaginationService {
     // If the sum of the previous two heights is less than window.innerHeight, continue adding
     // Until the sum is greater. Then take all of the summed items and add them to paginatedHeights as an array
 
-    // let margin = 20;
-    // if (page) {
-    //   const style = window.getComputedStyle(page.nativeElement);
-    //   const margin = parseInt(style.marginTop) + parseInt(style.marginBottom);
-    //   console.log(margin);
-    // }
-
     let sum = 0;
     let idxSubAryStart = 0;
     let paginatedExps = new Array<Array<Experience>>();
@@ -42,7 +41,7 @@ export class PaginationService {
         paginatedExps.push(experiences.slice(idxSubAryStart));
         break;
       }
-      if (sum < window.innerHeight) {
+      if (sum < window.innerHeight - extraHeight) {
         continue;
       }
       sum = 0;

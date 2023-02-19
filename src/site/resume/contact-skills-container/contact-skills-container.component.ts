@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef } from "@angular/core";
 import { Contact } from "src/site/model/contact.interface";
 import { ResumeJSONService } from "src/site/services/resume-json.service";
+import { PaginationService } from "./../../services/pagination.service";
 
 @Component({
   selector: "contact-skills-container",
@@ -8,9 +9,25 @@ import { ResumeJSONService } from "src/site/services/resume-json.service";
   styleUrls: ["./contact-skills-container.component.scss"],
 })
 export class ContactSkillsContainerComponent {
-  public get contact(): Contact {
+  isMobile = false;
+
+  get contact(): Contact {
     return this.json.resume.contact;
   }
 
-  constructor(private json: ResumeJSONService) {}
+  get height() {
+    return this.el.nativeElement.clientHeight;
+  }
+
+  constructor(
+    private json: ResumeJSONService,
+    private el: ElementRef<HTMLElement>,
+    private svcPagination: PaginationService
+  ) {
+    this.svcPagination.onResize.subscribe(() => this.onResize());
+  }
+
+  onResize() {
+    this.isMobile = window.innerWidth < 768;
+  }
 }
