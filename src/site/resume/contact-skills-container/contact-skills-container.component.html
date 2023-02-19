@@ -2,7 +2,7 @@
   <img class="me" src="assets/me.jpeg" />
   <contact-details
     #contact
-    [showAll]="isMobile"
+    [showAll]="!(window.innerWidth < 768)"
     class="details"
   ></contact-details>
 </div>

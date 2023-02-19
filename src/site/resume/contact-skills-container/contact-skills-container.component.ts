@@ -1,6 +1,7 @@
-import { Component, ElementRef } from "@angular/core";
+import { Component, ElementRef, Inject } from "@angular/core";
 import { Contact } from "src/site/model/contact.interface";
 import { ResumeJSONService } from "src/site/services/resume-json.service";
+import { WINDOW } from "../resume.module";
 import { PaginationService } from "./../../services/pagination.service";
 
 @Component({
@@ -9,8 +10,6 @@ import { PaginationService } from "./../../services/pagination.service";
   styleUrls: ["./contact-skills-container.component.scss"],
 })
 export class ContactSkillsContainerComponent {
-  isMobile = false;
-
   get contact(): Contact {
     return this.json.resume.contact;
   }
@@ -22,12 +21,7 @@ export class ContactSkillsContainerComponent {
   constructor(
     private json: ResumeJSONService,
     private el: ElementRef<HTMLElement>,
-    private svcPagination: PaginationService
-  ) {
-    this.svcPagination.onResize.subscribe(() => this.onResize());
-  }
-
-  onResize() {
-    this.isMobile = window.innerWidth < 768;
-  }
+    private svcPagination: PaginationService,
+    @Inject(WINDOW) public window: Window
+  ) {}
 }

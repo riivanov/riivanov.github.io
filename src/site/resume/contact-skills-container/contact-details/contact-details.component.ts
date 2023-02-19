@@ -8,7 +8,7 @@ import { ResumeJSONService } from "src/site/services/resume-json.service";
   styleUrls: ["./contact-details.component.scss"],
 })
 export class ContactDetailsComponent {
-  @Input() showAll = true;
+  @Input() showAll!: boolean;
 
   get contact(): Contact {
     return this.json.resume.contact;
